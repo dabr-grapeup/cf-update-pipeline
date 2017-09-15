@@ -5,10 +5,10 @@ apt-get update && apt-get install -y wget
 job-scripts/bosh_cli_install.sh
 
 SYSTEM_DOMAIN=cf.trainings2.cflab.grapeup.com
-BOSH_CLIENT=admin
-BOSH_CLIENT_SECRET=e5negwavp3j63i8fui8c
-BOSH_ENVIRONMENT=https://52.30.212.49:25555
-BOSH_CA_CERT='-----BEGIN CERTIFICATE-----
+export BOSH_CLIENT=admin
+export BOSH_CLIENT_SECRET=e5negwavp3j63i8fui8c
+export BOSH_ENVIRONMENT=https://52.30.212.49:25555
+export BOSH_CA_CERT='-----BEGIN CERTIFICATE-----
 MIIDEzCCAfugAwIBAgIQTnzCyyMLiIKcthxGIKOqkjANBgkqhkiG9w0BAQsFADAz
 MQwwCgYDVQQGEwNVU0ExFjAUBgNVBAoTDUNsb3VkIEZvdW5kcnkxCzAJBgNVBAMT
 AmNhMB4XDTE3MDkxMzA4MDkwOVoXDTE4MDkxMzA4MDkwOVowMzEMMAoGA1UEBhMD
@@ -28,4 +28,4 @@ vwY1JMmqAD65TIc/10VDzrrNbfKBzstOUL51d1CJLlSoSXUbkll/y9LCIJtqswbE
 SwNLtIjJZ/21xjdu+8ehtg7gS+FA9wc=
 -----END CERTIFICATE-----'
 
-bosh -e $BOSH_ENVIRONMENT -d cf deploy cf-deployment/cf-deployment.yml --vars-store env-repo/deployment-vars.yml -v system_domain=$SYSTEM_DOMAIN -o cf-deployment/operations/scale-to-one-az.yml -o cf-deployment/operations/aws.yml
+bosh -d cf deploy cf-deployment/cf-deployment.yml --vars-store env-repo/deployment-vars.yml -v system_domain=$SYSTEM_DOMAIN -o cf-deployment/operations/scale-to-one-az.yml -o cf-deployment/operations/aws.yml
