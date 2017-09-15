@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt-get install wget
+apt-get update && apt-get install -y wget
 
 job-scripts/bosh_cli_install.sh
 
