@@ -15,7 +15,6 @@ jobs:
   plan:
   - get: cf-deployment
   - get: job-scripts
-  - get: vars
   - task: task-cf-update
     config:
       platform: linux
@@ -25,7 +24,6 @@ jobs:
       inputs:
         - name: job-scripts
         - name: cf-deployment
-        - name: vars
       run:
         path: sh
         args:
