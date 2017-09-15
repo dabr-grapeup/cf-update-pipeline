@@ -1,5 +1,7 @@
 #!/bin/bash
 
+job-scripts/bosh_cli_install.sh
+
 SYSTEM_DOMAIN=cf.trainings2.cflab.grapeup.com
 BOSH_CLIENT=admin
 BOSH_CLIENT_SECRET=e5negwavp3j63i8fui8c

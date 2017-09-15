@@ -28,5 +28,4 @@ jobs:
         path: sh
         args:
           - -c
-          - job-scripts/bosh_cli_install.sh
           - job-scripts/cf_update.sh
