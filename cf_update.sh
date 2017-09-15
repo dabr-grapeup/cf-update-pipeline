@@ -29,6 +29,4 @@ SwNLtIjJZ/21xjdu+8ehtg7gS+FA9wc=
 -----END CERTIFICATE-----
 '
 
-wget https://s3-eu-west-1.amazonaws.com/dabr-vars/deployment-vars.yml
-
-bosh -d cf deploy cf-deployment/cf-deployment.yml --vars-store deployment-vars.yml -v system_domain=$SYSTEM_DOMAIN -o cf-deployment/operations/scale-to-one-az.yml -o cf-deployment/operations/aws.yml -n
+bosh -d cf deploy cf-deployment/cf-deployment.yml --vars-store vars/deployment-vars.yml -v system_domain=$SYSTEM_DOMAIN -o cf-deployment/operations/scale-to-one-az.yml -o cf-deployment/operations/aws.yml -n
