@@ -26,6 +26,7 @@ E/oFCJ+plDt128boo6YK/c03YVjLSefLVWoWI2h1DdWCT07u9VNrDYiYLQZi6yhD
 kXIJqik3UsnMyxolQUrfM+6iva6TynbCq+UA5Eil6GsnoGldKk8ZJyX7o46YdI86
 vwY1JMmqAD65TIc/10VDzrrNbfKBzstOUL51d1CJLlSoSXUbkll/y9LCIJtqswbE
 SwNLtIjJZ/21xjdu+8ehtg7gS+FA9wc=
------END CERTIFICATE-----'
+-----END CERTIFICATE-----
+'
 
 bosh -d cf deploy cf-deployment/cf-deployment.yml --vars-store env-repo/deployment-vars.yml -v system_domain=$SYSTEM_DOMAIN -o cf-deployment/operations/scale-to-one-az.yml -o cf-deployment/operations/aws.yml -n
