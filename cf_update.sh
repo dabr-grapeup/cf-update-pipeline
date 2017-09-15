@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt-get install wget
+
 job-scripts/bosh_cli_install.sh
 
 SYSTEM_DOMAIN=cf.trainings2.cflab.grapeup.com
