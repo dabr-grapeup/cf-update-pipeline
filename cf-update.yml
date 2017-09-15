@@ -4,17 +4,17 @@ resources:
   type: git
   source:
     uri: https://github.com/cloudfoundry/cf-deployment
-- name: update-script
+- name: job-scripts
   type: git
   source:
-    uri: https://gist.github.com/dabr-grapeup/4e6032d3fa5236d16362923f20b8e552
+    uri: https://github.com/dabr-grapeup/cf-update-pipeline
 
 jobs:
 - name: cf-update
   public: true
   plan:
   - get: deployment-dir
-  - get: update-script
+  - get: job-scripts
   - task: task-cf-update
     config:
       platform: linux
@@ -22,10 +22,11 @@ jobs:
         type: docker-image
         source: {repository: ubuntu, tag: "14.04"}
       inputs:
-        - name: update-script
+        - name: job-scripts
         - name: deployment-dir
       run:
         path: sh
         args:
           - -c
-          - update-script/cf_update.sh
+          - job-scripts/bosh_cli_install.sh
+          - job-scripts/cf_update.sh
