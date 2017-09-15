@@ -28,4 +28,4 @@ vwY1JMmqAD65TIc/10VDzrrNbfKBzstOUL51d1CJLlSoSXUbkll/y9LCIJtqswbE
 SwNLtIjJZ/21xjdu+8ehtg7gS+FA9wc=
 -----END CERTIFICATE-----'
 
-bosh -d cf deploy cf-deployment/cf-deployment.yml --vars-store env-repo/deployment-vars.yml -v system_domain=$SYSTEM_DOMAIN -o cf-deployment/operations/scale-to-one-az.yml -o cf-deployment/operations/aws.yml
+bosh -e $BOSH_ENVIRONMENT -d cf deploy cf-deployment/cf-deployment.yml --vars-store env-repo/deployment-vars.yml -v system_domain=$SYSTEM_DOMAIN -o cf-deployment/operations/scale-to-one-az.yml -o cf-deployment/operations/aws.yml
