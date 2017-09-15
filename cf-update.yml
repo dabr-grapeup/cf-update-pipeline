@@ -1,6 +1,6 @@
 ---
 resources:
-- name: deployment-dir
+- name: cf-deployment
   type: git
   source:
     uri: https://github.com/cloudfoundry/cf-deployment
@@ -13,7 +13,7 @@ jobs:
 - name: cf-update
   public: true
   plan:
-  - get: deployment-dir
+  - get: cf-deployment
   - get: job-scripts
   - task: task-cf-update
     config:
@@ -23,7 +23,7 @@ jobs:
         source: {repository: ubuntu, tag: "14.04"}
       inputs:
         - name: job-scripts
-        - name: deployment-dir
+        - name: cf-deployment
       run:
         path: sh
         args:
