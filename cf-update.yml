@@ -1,0 +1,31 @@
+---
+resources:
+- name: deployment-dir
+  type: git
+  source:
+    uri: https://github.com/cloudfoundry/cf-deployment
+- name: update-script
+  type: git
+  source:
+    uri: https://gist.github.com/dabr-grapeup/4e6032d3fa5236d16362923f20b8e552
+
+jobs:
+- name: cf-update
+  public: true
+  plan:
+  - get: deployment-dir
+  - get: update-script
+  - task: task-cf-update
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: ubuntu, tag: "14.04"}
+      inputs:
+        - name: update-script
+        - name: deployment-dir
+      run:
+        path: sh
+        args:
+          - -c
+          - update-script/cf_update.sh
